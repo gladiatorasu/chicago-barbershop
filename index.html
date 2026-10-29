@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chicago Barber House — Воронеж</title>
+<meta name="description" content="Барбершоп Chicago Barber House на Московском проспекте, 56. Мужские стрижки, борода опасной бритвой, комплексы с выгодой 10%. Ежедневно 10:00–21:00.">
+<!-- Демо-версия: пока владелец не одобрил сайт, поисковики его не показывают. После покупки убрать эту строку. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#121214">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Chicago Barber House — Воронеж">
+<meta property="og:description" content="Московский проспект, 56. Ежедневно 10:00–21:00. Рейтинг 4,8 в 2ГИС.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BarberShop",
+  "name": "Chicago Barber House",
+  "telephone": ["+7 958 649-71-52", "+7 999 405-23-25"],
+  "priceRange": "800–3500 ₽",
+  "address": {"@type": "PostalAddress", "streetAddress": "Московский проспект, 56, 1 этаж", "addressLocality": "Воронеж", "postalCode": "394016", "addressCountry": "RU"},
+  "geo": {"@type": "GeoCoordinates", "latitude": 51.697118, "longitude": 39.183099},
+  "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "10:00", "closes": "21:00"}],
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "24", "bestRating": "5"},
+  "sameAs": ["https://vk.com/chicago_barber_house", "https://2gis.ru/voronezh/firm/70000001101045808"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;900&family=Roboto+Condensed:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="img/logo.png">
+<style>
+  /* Макет: чёрный зал с красными акцентами, как в Chicago Barber House. Заголовки — жирная антиква с брусковыми засечками,
+     как надпись CHICAGO на логотипе. Красный — только кнопки, цены и тонкие линии. */
+  :root{
+    --bg:#121214;
+    --panel:#1b1b1f;
+    --panel-2:#24242a;
+    --line:#303036;
+    --fg:#f4f2ee;
+    --muted:#a3a2a8;
+    --red:#d6222c;
+    --red-2:#b11a23;
+    --star:#f0b33a;
+    --open:#5fcf86;
+    --display:"Roboto Slab",Georgia,serif;
+    --body:"Roboto Condensed","Arial Narrow",ui-sans-serif,system-ui,sans-serif;
+    --wrap:1200px;
+    --r:8px;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+  body{background:var(--bg);color:var(--fg);font:400 18px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--red);color:#fff}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  svg{display:block;flex:none}
+  :focus-visible{outline:2px solid var(--red);outline-offset:3px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:.01em;line-height:1;text-wrap:balance}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;border-radius:var(--r);border:2px solid transparent;cursor:pointer;font:700 17px/1 var(--body);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+  .btn svg{width:18px;height:18px}
+  .btn-red{background:var(--red);color:#fff}
+  .btn-red:hover{background:var(--red-2)}
+  .btn-line{border-color:var(--fg);color:var(--fg)}
+  .btn-line:hover{background:var(--fg);color:var(--bg)}
+  .btn-sm{height:42px;padding:0 18px;font-size:15px}
+
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+  .header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+  .header .wrap{display:flex;align-items:center;gap:28px;height:72px}
+  .logo{display:block;height:52px;flex:none}
+  .logo img{height:100%;width:auto}
+  .nav{display:flex;gap:26px;font-weight:500;font-size:16px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .nav a:hover{color:var(--fg)}
+  .header-right{margin-left:auto;display:flex;align-items:center;gap:18px}
+  .header-phone{font-weight:700;font-size:17px;white-space:nowrap}
+
+  /* первый экран: фото зала во всю ширину, название, строка, кнопка */
+  .hero{position:relative;isolation:isolate;overflow:hidden;min-height:clamp(540px,80vh,740px);display:flex;align-items:center}
+  .hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%;z-index:-2;animation:zoom 1.8s cubic-bezier(.2,.8,.2,1) both}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(18,18,20,.94) 0%,rgba(18,18,20,.72) 48%,rgba(18,18,20,.2) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 35%)}
+  .hero .wrap{width:100%;padding-block:clamp(48px,7vw,96px)}
+  .hero-logo{width:clamp(150px,16vw,210px);margin-bottom:26px;filter:drop-shadow(0 12px 30px rgba(0,0,0,.6))}
+  .hero h1{font-size:clamp(44px,7vw,96px)}
+  .hero h1 small{display:block;font:700 clamp(16px,1.5vw,20px)/1 var(--body);letter-spacing:.32em;color:var(--red);margin-bottom:14px}
+  .hero .lead{font-size:clamp(18px,1.6vw,21px);color:#d6d4d0;max-width:30em;margin:22px 0 32px}
+  .cta{display:flex;flex-wrap:wrap;gap:12px}
+  @keyframes zoom{from{transform:scale(1.08)}}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:-28px;position:relative;z-index:2}
+  .stat{background:var(--panel);padding:22px 24px;min-width:0}
+  .stat b{display:flex;align-items:center;gap:6px;font:900 30px/1.1 var(--display);font-variant-numeric:tabular-nums}
+  .stat b svg{width:20px;height:20px;color:var(--star)}
+  .stat span{font-size:15px;color:var(--muted)}
+  .status{display:inline-flex;align-items:center;gap:10px}
+  .status i{width:10px;height:10px;border-radius:50%;background:var(--muted)}
+  .status.is-open i{background:var(--open)}
+
+  .section{padding:clamp(72px,9vw,116px) 0}
+  .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 40px;margin-bottom:clamp(30px,4vw,48px)}
+  .head > div{min-width:0}
+  .kicker{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:.24em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+  .kicker::before{content:"";width:28px;height:3px;background:var(--red)}
+  .head h2{font-size:clamp(36px,5vw,64px)}
+  .head p{color:var(--muted);max-width:30em}
+
+  /* комплексы */
+  .combos{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .combo{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--red);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+  .combo h3{font-size:20px;line-height:1.15;text-transform:none}
+  .combo p{font-size:15px;color:var(--muted);flex:1}
+  .combo b{font:900 24px/1 var(--display);color:var(--fg)}
+  .combo small{font-size:14px;color:var(--muted)}
+  .save{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:4px;margin-bottom:6px}
+
+  /* прайс */
+  .price{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+  .p{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .p span{font-weight:700;font-size:19px}
+  .p small{grid-column:1;font-size:15px;color:var(--muted)}
+  .p b{grid-row:1;grid-column:2;font:900 21px/1.2 var(--display);color:var(--red);white-space:nowrap}
+
+  /* мастера */
+  .masters{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .master{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;grid-template-columns:76px minmax(0,1fr);gap:16px;align-items:center}
+  .master img{width:76px;height:76px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px var(--panel),0 0 0 5px var(--red);background:var(--panel-2)}
+  .master h3{font-size:26px;text-transform:none}
+  .master .role{font-size:15px;color:var(--muted);margin-top:4px}
+  .exp{grid-column:1/-1;display:flex;gap:10px}
+  .exp div{flex:1;background:var(--panel-2);border-radius:6px;padding:10px 12px}
+  .exp b{display:block;font:900 22px/1 var(--display)}
+  .exp span{font-size:13px;color:var(--muted)}
+  .master .btn{grid-column:1/-1;width:100%}
+  .master.lead-m{border-color:var(--red)}
+
+  /* зал */
+  .space{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:12px;height:clamp(320px,36vw,480px)}
+  .space button{padding:0;border:0;border-radius:var(--r);overflow:hidden;background:var(--panel);cursor:zoom-in;min-width:0}
+  .space img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .space button:hover img{transform:scale(1.05)}
+
+  /* отзывы */
+  .reviews{columns:3 300px;column-gap:12px}
+  .review{break-inside:avoid;margin-bottom:12px;padding:24px;border-radius:var(--r);background:var(--panel);border:1px solid var(--line);display:grid;gap:12px}
+  .review .stars{display:flex;gap:2px;color:var(--star)}
+  .review .stars svg{width:15px;height:15px}
+  .review p{font-size:17px}
+  .review footer{font-size:15px;color:var(--muted)}
+  .review footer b{color:var(--fg)}
+
+  /* контакты */
+  .contacts{display:grid;grid-template-columns:.95fr 1.05fr;gap:12px}
+  .info{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:grid;gap:16px;align-content:start}
+  .r{display:grid;grid-template-columns:100px 1fr;gap:12px}
+  .r + .r{padding-top:16px;border-top:1px solid var(--line)}
+  .r dt{font-size:14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+  .r dd small{display:block;color:var(--muted);font-size:15px}
+  .r a:hover{color:var(--red)}
+  .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .map{position:relative;min-height:440px;border-radius:var(--r);overflow:hidden;background:var(--panel);border:1px solid var(--line)}
+  .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.9) hue-rotate(180deg) grayscale(.4)}
+  .map .btn{position:absolute;left:16px;top:16px;z-index:2}
+
+  .final{padding:0 0 clamp(64px,8vw,100px)}
+  .final-box{position:relative;overflow:hidden;border-radius:var(--r);padding:clamp(36px,5vw,64px);background:var(--red);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px}
+  .final-box h2{font-size:clamp(30px,4.4vw,56px)}
+  .final-box p{margin-top:10px;color:#ffe1e2}
+  .final-box .btn{background:var(--bg);color:#fff}
+  .final-box .btn:hover{background:#000}
+  .footer{border-top:1px solid var(--line);padding-block:24px 30px;font-size:15px;color:var(--muted)}
+  .footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px}
+  .footer a{border-bottom:1px solid var(--line)}
+
+  .lightbox{border:0;padding:0;background:transparent;margin:auto;max-width:min(92vw,1000px);max-height:90vh;overflow:visible}
+  .lightbox::backdrop{background:rgba(0,0,0,.92)}
+  .lightbox img{max-width:min(92vw,1000px);max-height:86vh;width:auto;height:auto;border-radius:var(--r)}
+  .lightbox button{position:fixed;top:max(16px,env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));width:46px;height:46px;border-radius:50%;border:0;background:var(--red);color:#fff;cursor:pointer;display:grid;place-items:center}
+  .lightbox button svg{width:18px;height:18px}
+  .mobile-bar{display:none}
+
+  .hero .wrap > *{animation:up .8s cubic-bezier(.2,.8,.2,1) both}
+  .hero .wrap > :nth-child(2){animation-delay:.08s}
+  .hero .wrap > :nth-child(3){animation-delay:.16s}
+  .hero .wrap > :nth-child(4){animation-delay:.24s}
+  @keyframes up{from{opacity:0;transform:translateY(16px)}}
+
+  @media (max-width:1060px){.nav{display:none}.combos{grid-template-columns:1fr 1fr}.masters{grid-template-columns:1fr 1fr}}
+  @media (max-width:900px){
+    .stats{grid-template-columns:1fr 1fr}
+    .price,.contacts{grid-template-columns:1fr}
+    .space{grid-template-columns:1fr 1fr;height:auto;grid-auto-rows:220px}
+    .space button:first-child{grid-column:span 2}
+    .header-phone{display:none}
+  }
+  @media (max-width:640px){
+    body{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+    .header .btn{display:none}
+    .hero{min-height:620px;align-items:flex-end}
+    .hero::before{background:linear-gradient(0deg,rgba(18,18,20,.98) 0%,rgba(18,18,20,.8) 55%,rgba(18,18,20,.35) 100%)}
+    .cta{flex-direction:column}
+    .cta .btn{width:100%}
+    .stats{margin-top:12px}
+    .stat{padding:16px}
+    .stat b{font-size:24px}
+    .combos,.masters{grid-template-columns:1fr}
+    .space{grid-auto-rows:170px}
+    .r{grid-template-columns:1fr;gap:2px}
+    .map{min-height:320px}
+    .final-box .btn{width:100%}
+    .mobile-bar{display:grid;grid-template-columns:1fr auto;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:var(--bg);border-top:1px solid var(--line)}
+    .mobile-bar .btn-line{width:54px;padding:0}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9z"/></symbol>
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M8 7h9v9"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></g></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></symbol>
+    <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.5 4.3L2.9 11.5c-1.3.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.8-1.5-1.4zM9 14.2l9.1-5.8c.4-.3.8-.1.5.2l-7.6 6.9-.3 3.2z"/></symbol>
+    <symbol id="i-vk" viewBox="0 0 24 24"><path fill="currentColor" d="M12.8 17.5C6.6 17.5 3.1 13.3 3 6.5h3.1c.1 5 2.3 7.1 4.1 7.5V6.5h2.9v4.3c1.8-.2 3.6-2.2 4.3-4.3h2.9a8.6 8.6 0 0 1-3.9 5.6 9 9 0 0 1 4.6 5.4h-3.2a5.6 5.6 0 0 0-4.7-4v4z"/></symbol>
+  </defs>
+</svg>
+
+<header class="header">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Chicago Barber House — наверх"><img src="img/logo.png" alt="Chicago Barber House" width="400" height="354"></a>
+    <nav class="nav">
+      <a href="#combos">Комплексы</a>
+      <a href="#prices">Цены</a>
+      <a href="#masters">Мастера</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-right">
+      <a class="header-phone" href="tel:+79586497152">+7 958 649-71-52</a>
+      <a class="btn btn-red btn-sm" href="https://n1433289.yclients.ru/company/1297284/personal/menu?o=" target="_blank" rel="noopener">Записаться</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img src="img/zal.jpg" alt="Зал Chicago Barber House: тёмные стены, красные кресла и зеркала" fetchpriority="high">
+    <div class="wrap">
+      <h1><small>Барбершоп</small>Chicago Barber House</h1>
+      <p class="lead">Мужские стрижки, борода опасной бритвой, уход за лицом и стрижки «Отец + Сын». Московский проспект, 56.</p>
+      <div class="cta">
+        <a class="btn btn-red" href="https://n1433289.yclients.ru/company/1297284/personal/menu?o=" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Записаться онлайн</a>
+        <a class="btn btn-line" href="tel:+79586497152"><svg><use href="#i-phone"/></svg>Позвонить</a>
+      </div>
+    </div>
+  </section>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>4,8 <svg><use href="#i-star"/></svg></b><span>24 оценки в 2ГИС</span></div>
+      <div class="stat"><b>13 лет</b><span>стаж бренд-барбера</span></div>
+      <div class="stat"><b>10–21</b><span>каждый день</span></div>
+      <div class="stat"><b class="status" id="status"><i></i><span>—</span></b><span id="status-sub">сейчас</span></div>
+    </div>
+  </div>
+
+  <section class="section" id="combos">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="kicker">Комплексы</span><h2>Выгода 10%</h2></div>
+        <p>Две услуги за один визит дешевле, чем по отдельности.</p>
+      </div>
+      <div class="combos">
+        <article class="combo"><span class="save">−10%</span><h3>Стрижка + моделирование бороды</h3><p>Полный образ за один визит.</p><b>2 200 ₽</b><small>1 ч 20 мин</small></article>
+        <article class="combo"><span class="save">−10%</span><h3>Стрижка + борода + воск</h3><p>Стрижка, борода и удаление волос воском.</p><b>2 600–3 200 ₽</b><small>1–1,5 ч</small></article>
+        <article class="combo"><span class="save">−10%</span><h3>Стрижка + уход за лицом</h3><p>Стрижка и уход за кожей лица.</p><b>2 600–3 200 ₽</b><small>1–1 ч 45 мин</small></article>
+        <article class="combo"><span class="save">−10%</span><h3>«Отец + Сын»</h3><p>Две стрижки для папы и сына в одной записи.</p><b>2 600–3 500 ₽</b><small>1–1 ч 20 мин</small></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="prices" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="kicker">Цены</span><h2>Услуги</h2></div>
+        <p>Цена зависит от мастера. Точную стоимость видно при онлайн-записи в YClients.</p>
+      </div>
+      <div class="price">
+        <div class="p"><span>Мужская стрижка</span><b>1 400–2 000 ₽</b><small>45 мин</small></div>
+        <div class="p"><span>Моделирование бороды</span><b>1 000–1 200 ₽</b><small>30–45 мин · опасная бритва и шейвер</small></div>
+        <div class="p"><span>Стрижка удлинённых волос</span><b>1 800–3 200 ₽</b><small>1 ч · только ножницы</small></div>
+        <div class="p"><span>Бритьё головы шейвером</span><b>1 000 ₽</b><small>30 мин</small></div>
+        <div class="p"><span>Стрижка под 1 насадку</span><b>800 ₽</b><small>20 мин</small></div>
+        <div class="p"><span>Стрижка в 2 насадки</span><b>1 000 ₽</b><small>30 мин</small></div>
+        <div class="p"><span>Химическая завивка</span><b>5 000–15 000 ₽</b><small>1 ч</small></div>
+        <div class="p"><span>Оплата</span><b style="font-family:var(--body);font-size:18px;color:var(--fg)">карта, наличные</b><small>&nbsp;</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="masters" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="kicker">Команда</span><h2>Мастера</h2></div>
+        <p>Выберите мастера и запишитесь сразу к нему. Стаж и отзывы — из YClients.</p>
+      </div>
+      <div class="masters">
+        <article class="master lead-m">
+          <img src="img/master-snezhanna.png" alt="Снежанна" width="76" height="76" loading="lazy">
+          <div><h3>Снежанна</h3><div class="role">Бренд-барбер</div></div>
+          <div class="exp"><div><b>13 лет</b><span>стаж</span></div><div><b>29</b><span>отзывов</span></div></div>
+          <a class="btn btn-red btn-sm" href="https://n1433289.yclients.ru/company/1297284/personal/select-services?o=m3865936" target="_blank" rel="noopener">Записаться к Снежанне</a>
+        </article>
+        <article class="master">
+          <img src="img/master-maksim.png" alt="Максим" width="76" height="76" loading="lazy">
+          <div><h3>Максим</h3><div class="role">Топ-барбер</div></div>
+          <div class="exp"><div><b>3 года</b><span>стаж</span></div><div><b>2</b><span>отзыва</span></div></div>
+          <a class="btn btn-line btn-sm" href="https://n1433289.yclients.ru/company/1297284/personal/select-services?o=m5803086" target="_blank" rel="noopener">Записаться к Максиму</a>
+        </article>
+        <article class="master">
+          <img src="img/master-valya.png" alt="Валя" width="76" height="76" loading="lazy">
+          <div><h3>Валя</h3><div class="role">Барбер</div></div>
+          <div class="exp"><div><b>2 года</b><span>стаж</span></div><div><b>8</b><span>отзывов</span></div></div>
+          <a class="btn btn-line btn-sm" href="https://n1433289.yclients.ru/company/1297284/personal/select-services?o=m6063981" target="_blank" rel="noopener">Записаться к Вале</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="kicker">Зал</span><h2>Как у нас</h2></div>
+        <p>Тёмный зал, красные кресла и чай или кофе на входе. Нажмите на фото, чтобы рассмотреть.</p>
+      </div>
+      <div class="space">
+        <button type="button"><img src="img/zal-2.jpg" alt="Рабочие места мастеров" loading="lazy"></button>
+        <button type="button"><img src="img/vyveska.jpg" alt="Вывеска Chicago Barber House" loading="lazy"></button>
+        <button type="button"><img src="img/fasad.jpg" alt="Вход с Московского проспекта" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reviews" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="kicker">Отзывы</span><h2>Говорят клиенты</h2></div>
+        <p>Отзывы из 2ГИС без правок.</p>
+      </div>
+      <div class="reviews">
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Хотел поблагодарить мастера Снежану, за очень крутую работу. Стрижка получилась просто безупречной: все переходы плавные, контур ровный, форма держится даже без укладки. Инструменты стерильные, рабочее место аккуратное — чувствуешь себя в надёжных руках.</p><footer><b>Роман С.</b> · октябрь 2026</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Первое, что меня поразило – это атмосфера заведения. Стильный интерьер, приятная музыка и дружелюбная обстановка. На входе мне сразу же предложили чай или кофе , что конечно же радует. … Отдельно хочу поблагодарить барбера Максима за четкую стрижку.</p><footer><b>Сергей Т.</b> · октябрь 2026</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Очень доволен работой мастера Валентины в барбершопе Chicago: стрижка и оформление бороды получились аккуратными и именно такими, как я хотел. Видно, что мастер знает своё дело — спасибо за отличный результат!</p><footer><b>Евгений К.</b> · октябрь 2026</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Прекрасное аутентичное заведение, превосходные мастера делают свою работу очень качественно, отношение к клиенту безупречное буду рад посетить данное заведение вновь</p><footer><b>Андрей</b> · октябрь 2026</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Отличная работа у Вали: быстрая, аккуратная стрижка, всё по делу. Мастер сразу понял, что мне нужно, не пришлось объяснять по десять раз. Инструменты чистые, рабочее место в порядке. Однозначно рекомендую!</p><footer><b>Егор Р.</b> · октябрь 2026</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Всем привет, рад сообщить всем посетителям этого чудесного заведения, что -« Барберу руки целовал, такой шедевр забабахал мне на макушке» 5/5!</p><footer><b>Евгений О.</b> · октябрь 2026</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Стригут отлично, каждый мастер профессионал своего дела. Все ребята там общительные и приветливые. Однозначно РЕКОМЕНДУЮ!!!!!!</p><footer><b>Кирилл К.</b> · октябрь 2026</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Был вчера в этом заведении,сервисом доволен,мастер Валя приятная общительная девушка,стрижёт аккуратно,сделала то что хотел,инструменты стерильны.Приду ещё обязательно.</p><footer><b>Антон М.</b> · октябрь 2026</footer></article>
+        <article class="review"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><p>Отличное место, хорошее расположение, приятный персонал, всем рекомендую</p><footer><b>Никита В.</b> · октябрь 2026</footer></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacts" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="kicker">Контакты</span><h2>Как найти</h2></div>
+        <p>Коминтерновский район, первый этаж, вход с Московского проспекта.</p>
+      </div>
+      <div class="contacts">
+        <dl class="info">
+          <div class="r"><dt>Адрес</dt><dd>Московский проспект, 56, 1 этаж<small>Коминтерновский район, Воронеж, 394016</small></dd></div>
+          <div class="r"><dt>Часы</dt><dd>Ежедневно 10:00–21:00</dd></div>
+          <div class="r"><dt>Телефоны</dt><dd><a href="tel:+79586497152">+7 958 649-71-52</a><br><a href="tel:+79994052325">+7 999 405-23-25</a></dd></div>
+          <div class="links">
+            <a class="btn btn-line btn-sm" href="https://wa.me/79994052325" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+            <a class="btn btn-line btn-sm" href="https://t.me/barbersnezha136" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>Telegram</a>
+            <a class="btn btn-line btn-sm" href="https://vk.com/chicago_barber_house" target="_blank" rel="noopener"><svg><use href="#i-vk"/></svg>ВКонтакте</a>
+          </div>
+        </dl>
+        <div class="map">
+          <iframe title="Chicago Barber House на карте" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=39.183099%2C51.697118&amp;z=16&amp;pt=39.183099%2C51.697118%2Cpm2rdl&amp;l=map"></iframe>
+          <a class="btn btn-red btn-sm" href="https://2gis.ru/voronezh/firm/70000001101045808" target="_blank" rel="noopener">Маршрут в 2ГИС <svg><use href="#i-arrow-ur"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <div class="final-box">
+        <div><h2>Запишитесь онлайн</h2><p>Выберите мастера и время в YClients — это займёт минуту.</p></div>
+        <a class="btn" href="https://n1433289.yclients.ru/company/1297284/personal/menu?o=" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Записаться</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Chicago Barber House · Воронеж</span>
+    <span>Рейтинг, фото и отзывы: <a href="https://2gis.ru/voronezh/firm/70000001101045808" target="_blank" rel="noopener">2ГИС</a></span>
+  </div>
+</footer>
+
+<dialog class="lightbox" id="lightbox">
+  <img alt="">
+  <button type="button" aria-label="Закрыть"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+</dialog>
+
+<div class="mobile-bar">
+  <a class="btn btn-red" href="https://n1433289.yclients.ru/company/1297284/personal/menu?o=" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Записаться</a>
+  <a class="btn btn-line" href="tel:+79586497152" aria-label="Позвонить"><svg><use href="#i-phone"/></svg></a>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  (() => {
+    const el = document.getElementById('status');
+    const h = Number(new Intl.DateTimeFormat('ru-RU', {hour: 'numeric', hourCycle: 'h23', timeZone: 'Europe/Moscow'}).format(new Date()));
+    const open = h >= 10 && h < 21;
+    el.classList.toggle('is-open', open);
+    el.querySelector('span').textContent = open ? 'Открыто' : 'Закрыто';
+    document.getElementById('status-sub').textContent = open ? 'до 21:00' : 'откроемся в 10:00';
+  })();
+  const lb = document.getElementById('lightbox');
+  const lbImg = lb.querySelector('img');
+  document.querySelectorAll('.space button').forEach(b => b.addEventListener('click', () => {
+    const img = b.querySelector('img');
+    lbImg.src = img.src; lbImg.alt = img.alt;
+    lb.showModal();
+  }));
+  lb.addEventListener('click', () => lb.close());
+</script>
+</body>
+</html>
